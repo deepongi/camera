@@ -376,7 +376,11 @@ int mm_app_dump_frame(mm_camera_test_obj_t *testObj, mm_camera_stream_t *stream,
                             }
                         }
 
+#ifdef CAM_MSM8974
                         CDBG_HIGH("%s: written number of bytes %zd\n",
+#else
+                        CDBG_HIGH("%s: written number of bytes %ld\n",
+#endif
                             __func__, written_len);
                         close(file_fd);
                     } else {
